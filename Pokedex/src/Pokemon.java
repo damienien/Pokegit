@@ -4,7 +4,6 @@ public class Pokemon {
     private String name;
     private String sex;
     private String environment;
-    private String trainer;
     private String attack1;
     private String attack2;
     private String attack3;
@@ -29,10 +28,6 @@ public class Pokemon {
 
     public String getEnvironment(){
         return environment;
-    }
-
-    public String getTrainer(){
-        return trainer;
     }
 
     public String getAttack1(){
@@ -71,10 +66,6 @@ public class Pokemon {
 
     public void setEnvironment(String environment) {
         this.environment = environment;
-    }
-
-    public void setTrainer(String trainer) {
-        this.trainer = trainer;
     }
 
     public void setAttack1(String attack1) {

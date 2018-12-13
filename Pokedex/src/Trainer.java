@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Trainer {
@@ -6,7 +7,7 @@ public class Trainer {
     private String name;
     private String sex;
     private String city;
-    private List<Pokemon> listPokemon;
+    private List<Pokemon> listPokemon = new ArrayList<>();
 
     public String getAge() {
         return age;
@@ -52,7 +53,7 @@ public class Trainer {
         this.city = city;
     }
 
-    public void setListPokemon(List<Pokemon> listPokemon) {
-        this.listPokemon = listPokemon;
+    public void setListPokemon(Pokemon pokemon) {
+        this.listPokemon.add(pokemon);
     }
 }

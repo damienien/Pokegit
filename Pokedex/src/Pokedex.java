@@ -47,6 +47,7 @@ public class Pokedex {
                 break;
         }
     }
+
     public static String userInput() {
         Scanner userInputValue = new Scanner(System.in);
         System.out.println("| Choisissez une option :                                          |");
