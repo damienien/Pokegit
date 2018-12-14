@@ -34,7 +34,7 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+    public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
 
          Trainer Trainer = new Trainer();
 
