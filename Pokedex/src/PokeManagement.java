@@ -34,6 +34,7 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
+
         Trainer Trainer = new Trainer();
         Trainer.setName(Name);
         Trainer.setSex(Sex);
@@ -59,6 +60,9 @@ public class PokeManagement implements PokeManager {
         for (Pokemon pokemon : listPokemon) {
             System.out.println(pokemon.getName() + "  " + pokemon.getType() + "  " + pokemon.getEnvironment());
         }
+        if (listPokemon.size()==0) {
+            System.out.println("Il n'y a pas encore de pokemons enregistrés...!");
+        }
     }
 
     @Override
@@ -77,6 +81,9 @@ public class PokeManagement implements PokeManager {
 
         for (Trainer trainer : listeTrainer) {
             System.out.println(trainer.getName() + "  " + trainer.getAge() + "  " + trainer.getSize());
+        }
+        if (listeTrainer.size()==0) {
+            System.out.println("Il n'y a pas encore de dresseurs enregistrés...!");
         }
 
     }
