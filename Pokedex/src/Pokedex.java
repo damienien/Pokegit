@@ -40,7 +40,11 @@ public class Pokedex {
                 }
                 break;
             case ("4"):
-                // Fonction supprimer un pokemon
+                if (pm.deletePokemon(userInput("Quel est le nom du Pokémon que vous souhaitez supprimer ?"))) {
+                    System.out.println("Le Pokémon à été supprimé du Pokedex avec succès !");
+                } else {
+                    System.out.println("Une erreur est survenue, le Pokémon n'as pas été supprimer du Pokedex...");
+                }
                 break;
             case ("5"):
                 // Fonction ajouter un dresseur
