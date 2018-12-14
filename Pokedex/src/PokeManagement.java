@@ -61,7 +61,11 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void displayAllPokemon(List<Pokemon> Pokemon) {
+    public void displayAllPokemon() {
+
+        for (Pokemon pokemon : listPokemon) {
+            System.out.println(pokemon.getName() + "  " +  pokemon.getType() + "  " + pokemon.getEnvironment());
+        }
 
     }
 
@@ -71,7 +75,11 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void displayAllTrainer(List<Trainer> Trainer) {
+    public void displayAllTrainer() {
+
+        for (Trainer trainer : listeTrainer) {
+            System.out.println(trainer.getName() + "  " +  trainer.getAge() + "  " + trainer.getSize());
+        }
 
     }
 
