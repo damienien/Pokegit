@@ -21,6 +21,7 @@ public class Pokedex {
 
     public static void pokedexMenu() {
         String userKeyValue = userInput();
+        PokeManager pm = new PokeManagement();
 
         switch (userKeyValue) {
             case ("1"):
@@ -30,7 +31,7 @@ public class Pokedex {
                 // Fonction rechercher dresseur
                 break;
             case ("3"):
-                // Fonction ajouter un pokemon
+                pm.addPokemon("Pikachu", "Elair", "H", "Bourget-palet",25, "Electacle", "EclairFoudre", "EclairdeFeu", "CoupDeQueue");
                 break;
             case ("4"):
                 // Fonction supprimer un pokemon
