@@ -45,7 +45,7 @@ public class Pokedex {
                 System.out.println("Le dresseur à été enregistré dans le Pokedex avec succès !");
                 break;
             case ("6"):
-                pm.deletePokemon(userInput("Quel est le nom du dresseur que vous souhaitez supprimer ?"));
+                pm.deleteTrainer(userInput("Quel est le nom du dresseur que vous souhaitez supprimer ?"));
                 System.out.println("Le dresseur à été supprimé du Pokedex avec succès !");
                 break;
             default:
