@@ -12,8 +12,8 @@ public class Pokedex {
         System.out.println("|__________________________________________________________________|");
         System.out.println("|                        Pokedex - V 1.0.0 -                       |");
         System.out.println("|__________________________________________________________________|");
-        System.out.println("| 1 - RECHERCHER UN POKEMON                                        |");
-        System.out.println("| 2 - RECHERCHER UN DRESSEUR                                       |");
+        System.out.println("| 1 - AFFICHER TOUS LES POKÉMONS                                   |");
+        System.out.println("| 2 - AFFICHER TOUS LES DRESSEURS                                  |");
         System.out.println("| 3 - AJOUTER UN POKEMON                                           |");
         System.out.println("| 4 - SUPPRIMER UN POKEMON                                         |");
         System.out.println("| 5 - AJOUTER UN DRESSEUR                                          |");
@@ -45,11 +45,11 @@ public class Pokedex {
                 System.out.println("Le dresseur à été enregistré dans le Pokedex avec succès !");
                 break;
             case ("6"):
-                // Fonction supprimer un dresseur
+                pm.deletePokemon(userInput("Quel est le nom du dresseur que vous souhaitez supprimer ?"));
+                System.out.println("Le dresseur à été supprimé du Pokedex avec succès !");
                 break;
             default:
                 System.out.println("Option invalide, veuillez choisir parmis les options disponible...");
-                pokedexMenu();
                 break;
         }
         pokedexMenu();
