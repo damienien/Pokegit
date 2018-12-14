@@ -11,7 +11,6 @@ public class PokeManagement implements PokeManager {
     @Override
     public void addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
         Pokemon pokemon = new Pokemon();
-
         pokemon.setName(Name);
         pokemon.setType(Type);
         pokemon.setSex(Sex);
@@ -26,37 +25,23 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public boolean deletePokemon(String Name) {
+    public void deletePokemon(String Name) {
         Integer listSizePokemon = listPokemon.size();
         for (Pokemon pokemon : listPokemon) {
             if (pokemon.getName().equals(Name)) {
                 listPokemon.remove(pokemon);
             }
         }
-
-        if (listPokemon.size() == (listSizePokemon - 1)) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     @Override
-    public boolean addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
-        Integer listSizeTrainer = listeTrainer.size();
+    public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
         Trainer.setName(Name);
         Trainer.setSex(Sex);
         Trainer.setCity(City);
         Trainer.setAge(Age);
         Trainer.setSize(Size);
         listeTrainer.add(Trainer);
-
-        if (listeTrainer.size() == (listSizeTrainer + 1)) {
-            return true;
-        } else {
-            return false;
-        }
-
     }
 
     @Override
