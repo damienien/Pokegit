@@ -4,7 +4,6 @@ import java.util.List;
 public class PokeManagement implements PokeManager {
 
     private List<Pokemon> listPokemon = new ArrayList<>();
-
     private Trainer Trainer = new Trainer();
     private List<Trainer> listeTrainer = new ArrayList<>();
 
@@ -43,7 +42,7 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public boolean addTrainer(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+    public boolean addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
         Integer listSizeTrainer = listeTrainer.size();
         Trainer.setName(Name);
         Trainer.setSex(Sex);
@@ -87,7 +86,7 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void displayTrainerDetails(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+    public void displayTrainerDetails(String Name, String Sex, String City, Integer Age, Integer Size) {
 
     }
 }

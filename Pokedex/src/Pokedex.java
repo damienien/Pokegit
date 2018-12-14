@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Pokedex {
 
-    static PokeManager pm = new PokeManagement();
+    private static PokeManager pm = new PokeManagement();
 
     public static void main(String[] args) {
 
@@ -44,7 +44,11 @@ public class Pokedex {
                 }
                 break;
             case ("5"):
-                // Fonction ajouter un dresseur
+                if (pm.addTrainer(userInput("Quel est le nom du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), userInput("Quel est le sexe du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), userInput("Quel est la ville d'origine du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), Integer.parseInt(userInput("Quel est l'âge du dresseur que vous souhaitez enregistrer dans le Pokedex ?")), Integer.parseInt(userInput("Quel est la taille du dresseur que vous souhaitez enregistrer dans le Pokedex ?")))) {
+                    System.out.println("Le dresseur à été enregistré dans le Pokedex avec succès !");
+                } else {
+                    System.out.println("Une erreur est survenue, le dresseur n'as pas été enregistré dans le Pokedex");
+                }
                 break;
             case ("6"):
                 // Fonction supprimer un dresseur
