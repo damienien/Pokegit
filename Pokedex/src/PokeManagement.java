@@ -28,14 +28,14 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public boolean deletePokemon(String Name) {
-    Integer listSizePokemon = listPokemon.size();
+        Integer listSizePokemon = listPokemon.size();
         for (Pokemon pokemon : listPokemon) {
             if (pokemon.getName().equals(Name)) {
                 listPokemon.remove(pokemon);
             }
         }
 
-        if (listPokemon.size()==(listSizePokemon-1)) {
+        if (listPokemon.size() == (listSizePokemon - 1)) {
             return true;
         } else {
             return false;
@@ -52,7 +52,7 @@ public class PokeManagement implements PokeManager {
         Trainer.setSize(Size);
         listeTrainer.add(Trainer);
 
-        if (listeTrainer.size()==(listSizeTrainer+1)) {
+        if (listeTrainer.size() == (listSizeTrainer + 1)) {
             return true;
         } else {
             return false;
@@ -68,12 +68,18 @@ public class PokeManagement implements PokeManager {
     @Override
     public void displayAllPokemon() {
         for (Pokemon pokemon : listPokemon) {
-            System.out.println(pokemon.getName() + "  " +  pokemon.getType() + "  " + pokemon.getEnvironment());
+            System.out.println(pokemon.getName() + "  " + pokemon.getType() + "  " + pokemon.getEnvironment());
         }
     }
 
     @Override
-    public void displayPokeDetails(String Name, String Type, String Sex, String Environment, Integer Size, List Trainer, String Attack1, String Attack2, String Attack3, String Attack4) {
+    public void displayPokeDetails(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
+
+        for (Pokemon pokemon : listPokemon) {
+            if (pokemon.getName().equals(Name)) {
+                System.out.println(pokemon.getName() + "  " + pokemon.getType() + "  " + pokemon.getSex() + "  " + pokemon.getEnvironment() + "  " + pokemon.getSize() + "  " + pokemon.getAttack1() + " " + pokemon.getAttack2() + " " + pokemon.getAttack3() + "  " + pokemon.getAttack4());
+            }
+        }
 
     }
 
@@ -81,13 +87,18 @@ public class PokeManagement implements PokeManager {
     public void displayAllTrainer() {
 
         for (Trainer trainer : listeTrainer) {
-            System.out.println(trainer.getName() + "  " +  trainer.getAge() + "  " + trainer.getSize());
+            System.out.println(trainer.getName() + "  " + trainer.getAge() + "  " + trainer.getSize());
         }
 
     }
 
     @Override
-    public void displayTrainerDetails(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+    public void displayTrainerDetails(String Name, String Sex, String City, Integer Age, Integer Size) {
+        for (Trainer trainer : listeTrainer) {
+            if (trainer.getName().equals(Name)) {
+                System.out.println(trainer.getName() + "  " + trainer.getSex() + "  " + trainer.getCity() + "  " + trainer.getSize() + "  " + trainer.getAge());
+            }
 
+        }
     }
 }
