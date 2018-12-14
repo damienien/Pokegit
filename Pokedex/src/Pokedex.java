@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Pokedex {
 
-    static PokeManager pm = new PokeManagement();
+    private static PokeManager pm = new PokeManagement();
 
     public static void main(String[] args) {
 
@@ -12,8 +12,8 @@ public class Pokedex {
         System.out.println("|__________________________________________________________________|");
         System.out.println("|                        Pokedex - V 1.0.0 -                       |");
         System.out.println("|__________________________________________________________________|");
-        System.out.println("| 1 - RECHERCHER UN POKEMON                                        |");
-        System.out.println("| 2 - RECHERCHER UN DRESSEUR                                       |");
+        System.out.println("| 1 - AFFICHER TOUS LES POKÉMONS                                   |");
+        System.out.println("| 2 - AFFICHER TOUS LES DRESSEURS                                  |");
         System.out.println("| 3 - AJOUTER UN POKEMON                                           |");
         System.out.println("| 4 - SUPPRIMER UN POKEMON                                         |");
         System.out.println("| 5 - AJOUTER UN DRESSEUR                                          |");
@@ -30,28 +30,26 @@ public class Pokedex {
                 pm.displayAllPokemon();
                 break;
             case ("2"):
-                // Fonction rechercher dresseur
+                pm.displayAllTrainer();
                 break;
             case ("3"):
                 pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"));
-                    System.out.println("Le Pokémon à été enregsitré dans le Pokedex avec succès !");
+                System.out.println("Le Pokémon à été enregsitré dans le Pokedex avec succès !");
                 break;
             case ("4"):
-                if (pm.deletePokemon(userInput("Quel est le nom du Pokémon que vous souhaitez supprimer ?"))) {
-                    System.out.println("Le Pokémon à été supprimé du Pokedex avec succès !");
-                } else {
-                    System.out.println("Une erreur est survenue, le Pokémon n'as pas été supprimer du Pokedex...");
-                }
+                pm.deletePokemon(userInput("Quel est le nom du Pokémon que vous souhaitez supprimer ?"));
+                System.out.println("Le Pokémon à été supprimé du Pokedex avec succès !");
                 break;
             case ("5"):
-                // Fonction ajouter un dresseur
+                pm.addTrainer(userInput("Quel est le nom du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), userInput("Quel est le sexe du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), userInput("Quel est la ville d'origine du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), Integer.parseInt(userInput("Quel est l'âge du dresseur que vous souhaitez enregistrer dans le Pokedex ?")), Integer.parseInt(userInput("Quel est la taille du dresseur que vous souhaitez enregistrer dans le Pokedex ?")));
+                System.out.println("Le dresseur à été enregistré dans le Pokedex avec succès !");
                 break;
             case ("6"):
-                // Fonction supprimer un dresseur
+                pm.deletePokemon(userInput("Quel est le nom du dresseur que vous souhaitez supprimer ?"));
+                System.out.println("Le dresseur à été supprimé du Pokedex avec succès !");
                 break;
             default:
                 System.out.println("Option invalide, veuillez choisir parmis les options disponible...");
-                pokedexMenu();
                 break;
         }
         pokedexMenu();

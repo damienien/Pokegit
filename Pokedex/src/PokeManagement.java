@@ -10,7 +10,6 @@ public class PokeManagement implements PokeManager {
     @Override
     public void addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
         Pokemon pokemon = new Pokemon();
-
         pokemon.setName(Name);
         pokemon.setType(Type);
         pokemon.setSex(Sex);
@@ -35,17 +34,13 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
-
-         Trainer Trainer = new Trainer();
-
+        Trainer Trainer = new Trainer();
         Trainer.setName(Name);
         Trainer.setSex(Sex);
         Trainer.setCity(City);
         Trainer.setAge(Age);
         Trainer.setSize(Size);
         listeTrainer.add(Trainer);
-
-
     }
 
     @Override
@@ -92,7 +87,6 @@ public class PokeManagement implements PokeManager {
             if (trainer.getName().equals(Name)) {
                 System.out.println(trainer.getName() + "  " + trainer.getSex() + "  " + trainer.getCity() + "  " + trainer.getSize() + "  " + trainer.getAge());
             }
-
         }
     }
 }
