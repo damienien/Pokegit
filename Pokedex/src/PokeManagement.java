@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class PokeManagement implements PokeManager {
 
@@ -9,7 +8,7 @@ public class PokeManagement implements PokeManager {
 
     Trainer Trainer = new Trainer();
     List<Trainer> listeTrainer = new ArrayList<>();
-    
+
 
     @Override
     public boolean addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
@@ -39,7 +38,8 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+    public boolean addTrainer(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+        Integer listSizeTrainer = listeTrainer.size();
         Trainer.setName(Name);
         Trainer.setSex(Sex);
         Trainer.setCity(City);
@@ -47,6 +47,11 @@ public class PokeManagement implements PokeManager {
         Trainer.setSize(Size);
         listeTrainer.add(Trainer);
 
+        if (listeTrainer.size()==(listSizeTrainer+1)) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
