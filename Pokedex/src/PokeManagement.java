@@ -8,16 +8,12 @@ public class PokeManagement implements PokeManager {
     List<Pokemon> listPokemon = new ArrayList<>();
 
     Trainer Trainer = new Trainer();
-    List<Pokemon> listeTrainer = new ArrayList<>();
-
-    public static String userInput() {
-        Scanner userInputValue = new Scanner(System.in);
-        String keyValue = userInputValue.nextLine();
-        return keyValue;
-    }
+    List<Trainer> listeTrainer = new ArrayList<>();
+    
 
     @Override
-    public void addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
+    public boolean addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
+        Integer listSize = listPokemon.size();
         Pokemon.setName(Name);
         Pokemon.setType(Type);
         Pokemon.setSex(Sex);
@@ -28,6 +24,12 @@ public class PokeManagement implements PokeManager {
         Pokemon.setAttack3(Attack3);
         Pokemon.setAttack4(Attack4);
         listPokemon.add(Pokemon);
+
+        if (listPokemon.size()==(listSize+1)) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
@@ -43,6 +45,8 @@ public class PokeManagement implements PokeManager {
         Trainer.setCity(City);
         Trainer.setAge(Age);
         Trainer.setSize(Size);
+        listeTrainer.add(Trainer);
+
 
     }
 
