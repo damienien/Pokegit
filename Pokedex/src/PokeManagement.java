@@ -33,8 +33,19 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void deletePokemon(String Name) {
+    public boolean deletePokemon(String Name) {
+    Integer listSizePokemon = listPokemon.size();
+        for (Pokemon pokemon : listPokemon) {
+            if (pokemon.getName().equals(Name)) {
+                listPokemon.remove(pokemon);
+            }
+        }
 
+        if (listPokemon.size()==(listSizePokemon-1)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
