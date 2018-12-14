@@ -3,7 +3,6 @@ import java.util.List;
 
 public class PokeManagement implements PokeManager {
 
-    //private Pokemon pokemon = new Pokemon();
     private List<Pokemon> listPokemon = new ArrayList<>();
 
     private Trainer Trainer = new Trainer();
@@ -24,7 +23,6 @@ public class PokeManagement implements PokeManager {
         pokemon.setAttack3(Attack3);
         pokemon.setAttack4(Attack4);
         listPokemon.add(pokemon);
-
 
     }
 
@@ -69,7 +67,6 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void displayAllPokemon() {
-        listPokemon.add(new Pokemon());
         for (Pokemon pokemon : listPokemon) {
             System.out.println(pokemon.getName() + "  " +  pokemon.getType() + "  " + pokemon.getEnvironment());
         }
