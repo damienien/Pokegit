@@ -33,11 +33,8 @@ public class Pokedex {
                 // Fonction rechercher dresseur
                 break;
             case ("3"):
-                if (pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"))) {
+                pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"));
                     System.out.println("Le Pokémon à été enregsitré dans le Pokedex avec succès !");
-                } else {
-                    System.out.println("Une erreur est survenue, le Pokémon n'as pas été enregistré dans le Pokedex...");
-                }
                 break;
             case ("4"):
                 if (pm.deletePokemon(userInput("Quel est le nom du Pokémon que vous souhaitez supprimer ?"))) {

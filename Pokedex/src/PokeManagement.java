@@ -3,7 +3,7 @@ import java.util.List;
 
 public class PokeManagement implements PokeManager {
 
-    private Pokemon Pokemon = new Pokemon();
+    //private Pokemon pokemon = new Pokemon();
     private List<Pokemon> listPokemon = new ArrayList<>();
 
     private Trainer Trainer = new Trainer();
@@ -11,24 +11,20 @@ public class PokeManagement implements PokeManager {
 
 
     @Override
-    public boolean addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
-        Integer listSize = listPokemon.size();
-        Pokemon.setName(Name);
-        Pokemon.setType(Type);
-        Pokemon.setSex(Sex);
-        Pokemon.setEnvironment(Environment);
-        Pokemon.setSize(Size);
-        Pokemon.setAttack1(Attack1);
-        Pokemon.setAttack2(Attack2);
-        Pokemon.setAttack3(Attack3);
-        Pokemon.setAttack4(Attack4);
-        listPokemon.add(Pokemon);
+    public void addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
+        Pokemon pokemon = new Pokemon();
 
-        if (listPokemon.size()==(listSize+1)) {
-            return true;
-        } else {
-            return false;
-        }
+        pokemon.setName(Name);
+        pokemon.setType(Type);
+        pokemon.setSex(Sex);
+        pokemon.setEnvironment(Environment);
+        pokemon.setSize(Size);
+        pokemon.setAttack1(Attack1);
+        pokemon.setAttack2(Attack2);
+        pokemon.setAttack3(Attack3);
+        pokemon.setAttack4(Attack4);
+        listPokemon.add(pokemon);
+
 
     }
 
@@ -73,6 +69,7 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void displayAllPokemon() {
+        listPokemon.add(new Pokemon());
         for (Pokemon pokemon : listPokemon) {
             System.out.println(pokemon.getName() + "  " +  pokemon.getType() + "  " + pokemon.getEnvironment());
         }
