@@ -19,8 +19,8 @@ public class Pokedex {
         pokedexMenu();
     }
 
-    public static void pokedexMenu() {
-        String userKeyValue = userInput();
+    private static void pokedexMenu() {
+        String userKeyValue = userInput("| Choisissez une option :                                          |");
         PokeManager pm = new PokeManagement();
 
         switch (userKeyValue) {
@@ -31,7 +31,7 @@ public class Pokedex {
                 // Fonction rechercher dresseur
                 break;
             case ("3"):
-                pm.addPokemon("Pikachu", "Elair", "H", "Bourget-palet",25, "Electacle", "EclairFoudre", "EclairdeFeu", "CoupDeQueue");
+                pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"));
                 break;
             case ("4"):
                 // Fonction supprimer un pokemon
@@ -43,15 +43,15 @@ public class Pokedex {
                 // Fonction supprimer un dresseur
                 break;
             default:
-                System.out.println("Option invalide");
+                System.out.println("Option invalide, veuillez choisir parmis les options disponible...");
                 pokedexMenu();
                 break;
         }
     }
 
-    public static String userInput() {
+    private static String userInput(String message) {
+        System.out.println(message);
         Scanner userInputValue = new Scanner(System.in);
-        System.out.println("| Choisissez une option :                                          |");
         String keyValue = userInputValue.nextLine();
         return keyValue;
     }
