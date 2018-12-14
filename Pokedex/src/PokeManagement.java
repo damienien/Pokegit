@@ -4,7 +4,6 @@ import java.util.List;
 public class PokeManagement implements PokeManager {
 
     private List<Pokemon> listPokemon = new ArrayList<>();
-    private Trainer Trainer = new Trainer();
     private List<Trainer> listeTrainer = new ArrayList<>();
 
 
@@ -26,7 +25,6 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void deletePokemon(String Name) {
-        Integer listSizePokemon = listPokemon.size();
         for (Pokemon pokemon : listPokemon) {
             if (pokemon.getName().equals(Name)) {
                 listPokemon.remove(pokemon);
@@ -36,6 +34,7 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
+        Trainer Trainer = new Trainer();
         Trainer.setName(Name);
         Trainer.setSex(Sex);
         Trainer.setCity(City);
@@ -46,6 +45,12 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void deleteTrainer(String Name) {
+
+        for (Trainer trainer : listeTrainer) {
+            if (trainer.getName().equals(Name)) {
+                listeTrainer.remove(trainer);
+            }
+        }
 
     }
 
