@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class Pokedex {
+
+    static PokeManager pm = new PokeManagement();
+
     public static void main(String[] args) {
 
         System.out.println(" __________________________________________________________________");
@@ -21,7 +24,6 @@ public class Pokedex {
 
     private static void pokedexMenu() {
         String userKeyValue = userInput("| Choisissez une option :                                          |");
-        PokeManager pm = new PokeManagement();
 
         switch (userKeyValue) {
             case ("1"):
