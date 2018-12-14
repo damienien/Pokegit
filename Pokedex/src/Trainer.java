@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Trainer {
-    private String age;
+    private Integer age;
     private Integer size;
     private String name;
     private String sex;
     private String city;
     private List<Pokemon> listPokemon = new ArrayList<>();
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -33,7 +33,7 @@ public class Trainer {
         return listPokemon;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
