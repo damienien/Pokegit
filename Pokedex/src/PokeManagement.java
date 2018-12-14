@@ -3,11 +3,11 @@ import java.util.List;
 
 public class PokeManagement implements PokeManager {
 
-    Pokemon Pokemon = new Pokemon();
-    List<Pokemon> listPokemon = new ArrayList<>();
+    private Pokemon Pokemon = new Pokemon();
+    private List<Pokemon> listPokemon = new ArrayList<>();
 
-    Trainer Trainer = new Trainer();
-    List<Trainer> listeTrainer = new ArrayList<>();
+    private Trainer Trainer = new Trainer();
+    private List<Trainer> listeTrainer = new ArrayList<>();
 
 
     @Override
@@ -62,11 +62,9 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void displayAllPokemon() {
-
         for (Pokemon pokemon : listPokemon) {
             System.out.println(pokemon.getName() + "  " +  pokemon.getType() + "  " + pokemon.getEnvironment());
         }
-
     }
 
     @Override

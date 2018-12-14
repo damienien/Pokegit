@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class Pokedex {
+
+    static PokeManager pm = new PokeManagement();
+
     public static void main(String[] args) {
 
         System.out.println(" __________________________________________________________________");
@@ -19,19 +22,22 @@ public class Pokedex {
         pokedexMenu();
     }
 
-    public static void pokedexMenu() {
-        String userKeyValue = userInput();
-        PokeManager pm = new PokeManagement();
+    private static void pokedexMenu() {
+        String userKeyValue = userInput("| Choisissez une option :                                          |");
 
         switch (userKeyValue) {
             case ("1"):
-                // Fonction rechercher pokemon
+                pm.displayAllPokemon();
                 break;
             case ("2"):
                 // Fonction rechercher dresseur
                 break;
             case ("3"):
-                pm.addPokemon("Pikachu", "Elair", "H", "Bourget-palet",25, "Electacle", "EclairFoudre", "EclairdeFeu", "CoupDeQueue");
+                if (pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"))) {
+                    System.out.println("Le Pokémon à été enregsitré dans le Pokedex avec succès !");
+                } else {
+                    System.out.println("Une erreur est survenue, le Pokémon n'as pas été enregistré dans le Pokedex...");
+                }
                 break;
             case ("4"):
                 // Fonction supprimer un pokemon
@@ -43,15 +49,16 @@ public class Pokedex {
                 // Fonction supprimer un dresseur
                 break;
             default:
-                System.out.println("Option invalide");
+                System.out.println("Option invalide, veuillez choisir parmis les options disponible...");
                 pokedexMenu();
                 break;
         }
+        pokedexMenu();
     }
 
-    public static String userInput() {
+    private static String userInput(String message) {
+        System.out.println(message);
         Scanner userInputValue = new Scanner(System.in);
-        System.out.println("| Choisissez une option :                                          |");
         String keyValue = userInputValue.nextLine();
         return keyValue;
     }
