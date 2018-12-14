@@ -25,13 +25,17 @@ public class Pokedex {
 
         switch (userKeyValue) {
             case ("1"):
-                // Fonction rechercher pokemon
+                pm.displayAllPokemon();
                 break;
             case ("2"):
                 // Fonction rechercher dresseur
                 break;
             case ("3"):
-                pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"));
+                if (pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"))) {
+                    System.out.println("Le Pokémon à été enregsitré dans le Pokedex avec succès !");
+                } else {
+                    System.out.println("Une erreur est survenue, le Pokémon n'as pas été enregistré dans le Pokedex...");
+                }
                 break;
             case ("4"):
                 // Fonction supprimer un pokemon
@@ -47,6 +51,7 @@ public class Pokedex {
                 pokedexMenu();
                 break;
         }
+        pokedexMenu();
     }
 
     private static String userInput(String message) {
