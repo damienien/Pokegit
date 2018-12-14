@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class PokeManagement implements PokeManager {
 
@@ -8,16 +7,12 @@ public class PokeManagement implements PokeManager {
     List<Pokemon> listPokemon = new ArrayList<>();
 
     Trainer Trainer = new Trainer();
-    List<Pokemon> listeTrainer = new ArrayList<>();
+    List<Trainer> listeTrainer = new ArrayList<>();
 
-    public static String userInput() {
-        Scanner userInputValue = new Scanner(System.in);
-        String keyValue = userInputValue.nextLine();
-        return keyValue;
-    }
 
     @Override
-    public void addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
+    public boolean addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
+        Integer listSize = listPokemon.size();
         Pokemon.setName(Name);
         Pokemon.setType(Type);
         Pokemon.setSex(Sex);
@@ -29,6 +24,12 @@ public class PokeManagement implements PokeManager {
         Pokemon.setAttack4(Attack4);
         listPokemon.add(Pokemon);
 
+        if (listPokemon.size()==(listSize+1)) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     @Override
@@ -37,12 +38,20 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+    public boolean addTrainer(String Name, String Sex, String City, Integer Age, Integer Size, List Pokemon) {
+        Integer listSizeTrainer = listeTrainer.size();
         Trainer.setName(Name);
         Trainer.setSex(Sex);
         Trainer.setCity(City);
         Trainer.setAge(Age);
         Trainer.setSize(Size);
+        listeTrainer.add(Trainer);
+
+        if (listeTrainer.size()==(listSizeTrainer+1)) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
