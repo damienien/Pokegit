@@ -35,13 +35,22 @@ public class PokeManagement implements PokeManager {
     @Override
     public void addTrainer(String Name, String Sex, String City, Integer Age, Integer Size) {
 
-        Trainer Trainer = new Trainer();
-        Trainer.setName(Name);
-        Trainer.setSex(Sex);
-        Trainer.setCity(City);
-        Trainer.setAge(Age);
-        Trainer.setSize(Size);
-        listeTrainer.add(Trainer);
+        for (Trainer trainer : listeTrainer) {
+            if (trainer.getName().equals(Name)) {
+                System.out.println("Un dresseur de ce nom existe déjà !");
+                Name = null;
+            }
+        }
+
+        if (Name != null) {
+            Trainer Trainer = new Trainer();
+            Trainer.setName(Name);
+            Trainer.setSex(Sex);
+            Trainer.setCity(City);
+            Trainer.setAge(Age);
+            Trainer.setSize(Size);
+            listeTrainer.add(Trainer);
+        }
     }
 
     @Override
@@ -66,10 +75,10 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void displayPokeDetails(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
+    public void displayPokeDetails(String name) {
 
         for (Pokemon pokemon : listPokemon) {
-            if (pokemon.getName().equals(Name)) {
+            if (pokemon.getName().equals(name)) {
                 System.out.println(pokemon.getName() + "  " + pokemon.getType() + "  " + pokemon.getSex() + "  " + pokemon.getEnvironment() + "  " + pokemon.getSize() + "  " + pokemon.getAttack1() + " " + pokemon.getAttack2() + " " + pokemon.getAttack3() + "  " + pokemon.getAttack4());
             }
         }
@@ -89,9 +98,9 @@ public class PokeManagement implements PokeManager {
     }
 
     @Override
-    public void displayTrainerDetails(String Name, String Sex, String City, Integer Age, Integer Size) {
+    public void displayTrainerDetails(String name) {
         for (Trainer trainer : listeTrainer) {
-            if (trainer.getName().equals(Name)) {
+            if (trainer.getName().equals(name)) {
                 System.out.println(trainer.getName() + "  " + trainer.getSex() + "  " + trainer.getCity() + "  " + trainer.getSize() + "  " + trainer.getAge());
             }
         }
