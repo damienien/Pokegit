@@ -23,7 +23,7 @@ public class Pokedex {
     }
 
     private static void pokedexMenu() {
-        String userKeyValue = userInput("| Choisissez une option :                                          |");
+        String userKeyValue = userInput("| Choisissez une option :                                          |", 1);
 
         switch (userKeyValue) {
             case ("1"):
@@ -33,19 +33,19 @@ public class Pokedex {
                 pm.displayAllTrainer();
                 break;
             case ("3"):
-                pm.addPokemon(userInput("| Quel est le nom du Pokémon ?"), userInput("| Quel est le type du Pokémon ?"), userInput("| Quel est le sexe du Pokémon ?"), userInput("| Dans quel environement vit le Pokémon ?"), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?")), userInput("| Quelle est la première attaque du Pokémon ?"), userInput("| Quelle est la deuxième attaque du Pokémon ?"), userInput("| Quelle est la troisième attaque du Pokémon ?"), userInput("| Quelle est la quatrième attaque du Pokémon ?"));
+                pm.addPokemon(userInput("| Quel est le nom du Pokémon ?", 10), userInput("| Quel est le type du Pokémon ?", 10), userInput("| Quel est le sexe du Pokémon ?", 10), userInput("| Dans quel environement vit le Pokémon ?", 10), Integer.parseInt(userInput("| Quelle taille (en cm) fait le Pokémon ?", 3)), userInput("| Quelle est la première attaque du Pokémon ?", 10), userInput("| Quelle est la deuxième attaque du Pokémon ?", 10), userInput("| Quelle est la troisième attaque du Pokémon ?", 10), userInput("| Quelle est la quatrième attaque du Pokémon ?", 10));
                 System.out.println("Le Pokémon à été enregsitré dans le Pokedex avec succès !");
                 break;
             case ("4"):
-                pm.deletePokemon(userInput("Quel est le nom du Pokémon que vous souhaitez supprimer ?"));
+                pm.deletePokemon(userInput("Quel est le nom du Pokémon que vous souhaitez supprimer ?", 10));
                 System.out.println("Le Pokémon à été supprimé du Pokedex avec succès !");
                 break;
             case ("5"):
-                pm.addTrainer(userInput("Quel est le nom du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), userInput("Quel est le sexe du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), userInput("Quel est la ville d'origine du dresseur que vous souhaitez enregistrer dans le Pokedex ?"), Integer.parseInt(userInput("Quel est l'âge du dresseur que vous souhaitez enregistrer dans le Pokedex ?")), Integer.parseInt(userInput("Quel est la taille du dresseur que vous souhaitez enregistrer dans le Pokedex ?")));
+                pm.addTrainer(userInput("Quel est le nom du dresseur que vous souhaitez enregistrer dans le Pokedex ?", 10), userInput("Quel est le sexe du dresseur que vous souhaitez enregistrer dans le Pokedex ?", 5), userInput("Quel est la ville d'origine du dresseur que vous souhaitez enregistrer dans le Pokedex ?", 10), Integer.parseInt(userInput("Quel est l'âge du dresseur que vous souhaitez enregistrer dans le Pokedex ?", 3)), Integer.parseInt(userInput("Quel est la taille du dresseur que vous souhaitez enregistrer dans le Pokedex ?", 3)));
                 System.out.println("Le dresseur à été enregistré dans le Pokedex avec succès !");
                 break;
             case ("6"):
-                pm.deleteTrainer(userInput("Quel est le nom du dresseur que vous souhaitez supprimer ?"));
+                pm.deleteTrainer(userInput("Quel est le nom du dresseur que vous souhaitez supprimer ?", 10));
                 System.out.println("Le dresseur à été supprimé du Pokedex avec succès !");
                 break;
             default:
@@ -55,10 +55,15 @@ public class Pokedex {
         pokedexMenu();
     }
 
-    private static String userInput(String message) {
+    private static String userInput(String message, Integer size) {
         System.out.println(message);
         Scanner userInputValue = new Scanner(System.in);
         String keyValue = userInputValue.nextLine();
+
+        if (keyValue.length() > size) {
+            System.out.println("La taille de la chaine de caractère ne doit pas dépasser " + size.toString() + " caractères.");
+            return userInput(message, size);
+        }
         return keyValue;
     }
 }

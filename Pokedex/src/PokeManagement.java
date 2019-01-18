@@ -6,6 +6,13 @@ public class PokeManagement implements PokeManager {
     private List<Pokemon> listPokemon = new ArrayList<>();
     private List<Trainer> listeTrainer = new ArrayList<>();
 
+    private String addSpace(Integer number) {
+        String space = "";
+        for (int i = 1; i <= number; i++) {
+            space = space + " ";
+        }
+        return space;
+    }
 
     @Override
     public void addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
@@ -67,10 +74,10 @@ public class PokeManagement implements PokeManager {
     @Override
     public void displayAllPokemon() {
         for (Pokemon pokemon : listPokemon) {
-            System.out.println(pokemon.getName() + "  " + pokemon.getType() + "  " + pokemon.getEnvironment());
+            System.out.println(pokemon.getName() + addSpace(10 - pokemon.getName().length()) + "| " + pokemon.getType() + addSpace(10 - pokemon.getType().length()) + "| " + pokemon.getEnvironment() + addSpace(48 - pokemon.getEnvironment().length()) + "|");
         }
-        if (listPokemon.size()==0) {
-            System.out.println("Il n'y a pas encore de pokemons enregistrés...!");
+        if (listPokemon.size() == 0) {
+            System.out.println("Il n'y a pas encore de pokemons enregistrés.");
         }
     }
 
@@ -92,7 +99,7 @@ public class PokeManagement implements PokeManager {
             System.out.println(trainer.getName() + "  " + trainer.getAge() + "  " + trainer.getSize());
         }
         if (listeTrainer.size()==0) {
-            System.out.println("Il n'y a pas encore de dresseurs enregistrés...!");
+            System.out.println("Il n'y a pas encore de dresseurs enregistrés.");
         }
 
     }
