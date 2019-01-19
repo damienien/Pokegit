@@ -16,26 +16,36 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void addPokemon(String Name, String Type, String Sex, String Environment, Integer Size, String Attack1, String Attack2, String Attack3, String Attack4) {
-        Pokemon pokemon = new Pokemon();
-        pokemon.setName(Name);
-        pokemon.setType(Type);
-        pokemon.setSex(Sex);
-        pokemon.setEnvironment(Environment);
-        pokemon.setSize(Size);
-        pokemon.setAttack1(Attack1);
-        pokemon.setAttack2(Attack2);
-        pokemon.setAttack3(Attack3);
-        pokemon.setAttack4(Attack4);
-        listPokemon.add(pokemon);
+        for (Pokemon pokemon : listPokemon) {
+            if (pokemon.getName().equals(Name)) {
+                System.out.println("Un Pokémon de ce nom existe déjà !");
+                Name = null;
+            }
+        }
 
+        if (Name != null) {
+            Pokemon pokemon = new Pokemon();
+            pokemon.setName(Name);
+            pokemon.setType(Type);
+            pokemon.setSex(Sex);
+            pokemon.setEnvironment(Environment);
+            pokemon.setSize(Size);
+            pokemon.setAttack1(Attack1);
+            pokemon.setAttack2(Attack2);
+            pokemon.setAttack3(Attack3);
+            pokemon.setAttack4(Attack4);
+            listPokemon.add(pokemon);
+        }
     }
 
     @Override
     public void deletePokemon(String Name) {
+        int i = 0;
         for (Pokemon pokemon : listPokemon) {
             if (pokemon.getName().equals(Name)) {
-                listPokemon.remove(pokemon);
+                listPokemon.remove(i);
             }
+            i = i + 1;
         }
     }
 
@@ -62,11 +72,12 @@ public class PokeManagement implements PokeManager {
 
     @Override
     public void deleteTrainer(String Name) {
-
+        int i = 0;
         for (Trainer trainer : listeTrainer) {
             if (trainer.getName().equals(Name)) {
-                listeTrainer.remove(trainer);
+                listeTrainer.remove(i);
             }
+            i = i + 1;
         }
 
     }
@@ -74,7 +85,7 @@ public class PokeManagement implements PokeManager {
     @Override
     public void displayAllPokemon() {
         for (Pokemon pokemon : listPokemon) {
-            System.out.println(pokemon.getName() + addSpace(10 - pokemon.getName().length()) + "| " + pokemon.getType() + addSpace(10 - pokemon.getType().length()) + "| " + pokemon.getEnvironment() + addSpace(48 - pokemon.getEnvironment().length()) + "|");
+            System.out.println("| " + pokemon.getName() + addSpace(10 - pokemon.getName().length()) + "| " + pokemon.getType() + addSpace(10 - pokemon.getType().length()) + "| " + pokemon.getEnvironment() + addSpace(41 - pokemon.getEnvironment().length()) + "|");
         }
         if (listPokemon.size() == 0) {
             System.out.println("Il n'y a pas encore de pokemons enregistrés.");
@@ -86,7 +97,19 @@ public class PokeManagement implements PokeManager {
 
         for (Pokemon pokemon : listPokemon) {
             if (pokemon.getName().equals(name)) {
-                System.out.println(pokemon.getName() + "  " + pokemon.getType() + "  " + pokemon.getSex() + "  " + pokemon.getEnvironment() + "  " + pokemon.getSize() + "  " + pokemon.getAttack1() + " " + pokemon.getAttack2() + " " + pokemon.getAttack3() + "  " + pokemon.getAttack4());
+                System.out.println(" __________________________________________________________________");
+                System.out.println("|                  |                    |                          |");
+                System.out.println("| NOM :  " + pokemon.getName() + addSpace(10 - pokemon.getName().length()) + "| TYPE :  " + pokemon.getType() + addSpace(10 - pokemon.getType().length()) + " | SEXE :   " + pokemon.getSex() + addSpace(10 - pokemon.getSex().length()) + "      |");
+                System.out.println("|__________________|____________________|__________________________|");
+                System.out.println("|                                                                  |");
+                System.out.println("|                    ENVIRONNEMENT : " + pokemon.getEnvironment() + addSpace(10 - pokemon.getEnvironment().length()) + "                    |");
+                System.out.println("|__________________________________________________________________|");
+                System.out.println("|                             |                                    |");
+                System.out.println("| ATTAQUE N°1 :  " + pokemon.getAttack1() + addSpace(13 - pokemon.getAttack1().length()) + "| ATTAQUE N°2 :  " + pokemon.getAttack2() + addSpace(13 - pokemon.getAttack2().length()) + "       |");
+                System.out.println("|_____________________________|____________________________________|");
+                System.out.println("|                             |                                    |");
+                System.out.println("| ATTAQUE N°3 :  " + pokemon.getAttack3() + addSpace(13 - pokemon.getAttack3().length()) + "| ATTAQUE N°4 :  " + pokemon.getAttack4() + addSpace(13 - pokemon.getAttack4().length()) + "       |");
+                System.out.println("|_____________________________|____________________________________|");
             }
         }
 
